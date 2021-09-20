@@ -19,7 +19,7 @@ def user_api_view(request):
         users_serializer = UserSerializer(data = request.data)
         if users_serializer.is_valid():
             users_serializer.save()
-            return Response(users_serializer.data,status = status.HTTP_201_CREATED)
+            return Response({'message':'Usuario creado correctamente!'},status = status.HTTP_201_CREATED)
         return Response(users_serializer.errors,status = status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET','PUT','DELETE'])
@@ -39,7 +39,7 @@ def user_detail_api_view(request,pk=None):
             users_serializer = UserSerializer(user,data = request.data)
             if users_serializer.is_valid():
                 users_serializer.save()
-                return Response(users_serializer.data,status = status.HTTP_200_OK)
+                return Response({'message':'Usuario modificado correctamente!'},status = status.HTTP_200_OK)
             return Response(users_serializer.errors,status = status.HTTP_400_BAD_REQUEST)
 
         #delete
