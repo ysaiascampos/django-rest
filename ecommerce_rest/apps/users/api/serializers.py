@@ -34,3 +34,6 @@ class TestUserSerializer(serializers.Serializer):
         instance.email = validated_data.get('email',instance.email)
         instance.save()
         return instance
+    
+    """ def save(self):
+        print(self.validated_data) """
